@@ -1,0 +1,150 @@
+.white {
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 30px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.black {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.grey {
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 0px;
+  margin: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#img {
+  content: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+  margin: 0px;
+  margin-left: 30px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#f {
+  content: url('https://www.shareicon.net/data/512x512/2016/10/20/846391_alphabet-f-letter-letters-red_512x512.png');
+  margin: 0px;
+  margin-left: 30px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#o {
+  content: url('https://www.shareicon.net/data/512x512/2016/10/20/846444_alphabet-letter-letters-o-red_512x512.png');
+  margin: 0px;
+  margin-left: 0px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#r {
+  content: url('https://www.shareicon.net/download/2016/10/20/846435_letter_512x512.png');
+  margin: 0px;
+  margin-left: -30px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#z {
+  content: url('https://www.shareicon.net/download/2016/10/20/846399_letter_512x512.png');
+  margin: 0px;
+  margin-left: -60px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#a {
+  content: url('https://www.shareicon.net/data/128x128/2016/10/20/846390_letter_512x512.png');
+  margin: 0px;
+  margin-left: -90px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#n4 {
+  content: url('https://www.shareicon.net/data/128x128/2016/10/20/846402_green_512x512.png');
+  margin: 0px;
+  margin-left: -120px;
+  padding: 0px;
+  width: auto;
+  height: 60px;
+}
+
+#posizione {
+  margin-left: 700px;
+  margin-bottom: 0px;
+}
+
+#clicca {
+  content: url('https://cdn2.iconfinder.com/data/icons/button-4/512/button_keyboard_down_arrow-512.png');
+  margin: 0px;
+  margin-left: 15px;
+  margin-top: 30px;
+  padding: 0px;
+  width: auto;
+  height: 50px;
+}
+
+#erroreInserimento {
+  content: url('https://www.voglioinsegnare.it/immagini/404.png');
+  margin: 0px;
+  margin-left: 15px;
+  margin-top: 30px;
+  padding: 0px;
+  width: auto;
+  height: 10px;
+}
+
+#forza4 {
+  content: url('http://2.bp.blogspot.com/-aS21VojKHJk/VkxFhmd6ybI/AAAAAAAABu8/0OLI2EB62TM/s1600/forza4-footer.png');
+  margin: 0px;
+  margin-left: 45px;
+  padding: 0px;
+  width: 200px;
+  height: auto;
+}
+
+html,
+body {
+	height: 100%;
+  width: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: navajowhite;
+}
+
+@media
+  only screen 
+  and (max-width: 760px), (min-device-width: 768px) 
+  and (max-device-width: 1024px)  {
+
+  table {
+    max-width: inherit; 
+  }
+
+  .white {
+    margin: 10px 0; 
+    position: fixed;
+  }
+
+}
