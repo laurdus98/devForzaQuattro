@@ -40,8 +40,8 @@ function turn(_turn) {
 // funzione che indrizza al vincitore
 function navigationToWin(link) {
   const _isTrue = isTrue ? "WOODY" : "TRUMP";
-  const locationIsWin = alert(_isTrue);
-  location.assign(link)
+  const locationIsWin = link ? alert(_isTrue) : alert("PAREGGIO");
+  location.assign(link ? link : "https://media4.giphy.com/avatars/William_Redgrove_Illustration/gCKztJA3fVgq.gif")
   return locationIsWin;
 }
 
@@ -77,7 +77,7 @@ function variantObj(incrementEl, defaultNumbersEl, incrementPos, _idx, turn, _ar
   const isControlWin = controlWin(_objToArray, turn);
   const isTurn = turn ? newImgAzzurro(incrementEl, incrementPos, turn) : newImgVerde(incrementEl, incrementPos, turn);
   const isLink = turn ? "https://media0.giphy.com/media/jUgOxnun3QPq0UbjDx/giphy.gif" : "https://media2.giphy.com/media/OWvUqE2hH7MuA/source.gif"
-  const result = isControlWin ? navigationToWin(isLink) : isTurn;
+  const result = isControlWin ? _objToArray.length === 42 && !turn ? navigationToWin("") : navigationToWin(isLink) : isTurn;
   return result;
 }
 
@@ -404,8 +404,9 @@ function controlWin (array, turn) {
     const _diagonal_dx = validArrayDiagonalDx; // +6
     const _horizontal = validArrayHorizontal; // +1
     const _vertical = validArrayVertical; // +7
+    const _draw = sortingArray.length === 21 && !turn; //full array
 
-    const _result = _diagonal_sx || _diagonal_dx || _horizontal || _vertical;
+    const _result = _diagonal_sx || _diagonal_dx || _horizontal || _vertical || _draw;
 
     return _result;
 
