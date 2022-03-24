@@ -186,6 +186,22 @@ function newImgVerde (el, pos, turn) {
 
 }
 
+// funzione che filtra e verifica se è avanzato un certo tipo di range
+function rangeByControlMoves(sortingArray, prev, next, type) {
+  let resultRange = [];
+  switch(type) {
+    case '+':
+    resultRange = sortingArray.filter(i => i > prev && i <= prev+next)
+    break;
+    case '-':
+    resultRange = sortingArray.filter(i => i <= prev && i > prev-next)
+    break;
+    default:
+  }
+  console.log("_range", resultRange)
+  return resultRange;
+}
+
 // funzione che valida l'increment
 function controlMoves(sortingArray, increment) {
 
@@ -222,20 +238,26 @@ function controlMoves(sortingArray, increment) {
         break;
       // +1
       case "1":
+          if(sortingArray.includes(1)) {
+            isNoValid = rangeByControlMoves(sortingArray, 1, 4, '+').length === 4 ? true : false;
+          }
           if (sortingArray.includes(7) && sortingArray.includes(8)) {
-            isNoValid = false;
+            isNoValid = rangeByControlMoves(sortingArray, 7, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 8, 4, '+').length === 4 ? true : false;
           }
           if (sortingArray.includes(14) && sortingArray.includes(15)) {
-            isNoValid = false;
+            isNoValid = rangeByControlMoves(sortingArray, 14, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 15, 4, '+').length === 4 ? true : false;
           }
           if (sortingArray.includes(21) && sortingArray.includes(22)) {
-            isNoValid = false;
+            isNoValid = rangeByControlMoves(sortingArray, 21, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 22, 4, '+').length === 4 ? true : false;
           }
           if (sortingArray.includes(28) && sortingArray.includes(29)) {
-            isNoValid = false;
+            isNoValid = rangeByControlMoves(sortingArray, 28, 4, '-').length === 4  || rangeByControlMoves(sortingArray, 29, 4, '+').length === 4 ? true : false;
           }
           if (sortingArray.includes(35) && sortingArray.includes(36)) {
-            isNoValid = false;
+            isNoValid = rangeByControlMoves(sortingArray, 35, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 36, 4, '+').length === 4 ? true : false;
+          }
+          if(sortingArray.includes(42)) {
+            isNoValid = rangeByControlMoves(sortingArray, 42, 4, '-').length === 4 ? true : false;
           }
         break;
 
@@ -243,7 +265,9 @@ function controlMoves(sortingArray, increment) {
 
     }
 
-    if(sortingArray.length >= 4) {
+    console.log("Processing", isNoValid)
+
+    if(sortingArray.length >= 4 && isNoValid) {
 
         // prendo tutto il length da sortingArray
         for(let i = 0; i<= sortingArray.length; i++) {
@@ -277,7 +301,7 @@ function controlMoves(sortingArray, increment) {
                 _array.push(_i, _i+(increment*1), _i+(increment*2), _i+(increment*3));
 
                  // controllo se le coppie dei num laterali orizontali siano +6
-                _array = _array[0] && _array[1] && _array[2] && _array[3] && isNoValid
+                _array = _array[0] && _array[1] && _array[2] && _array[3]
                             ?  _array.concat("YOU WIN")
                             :  _array
 
@@ -294,7 +318,7 @@ function controlMoves(sortingArray, increment) {
                 const _valid =  uniq[0] && uniq[1] && uniq[2] && uniq[3]
                                     ? uniq[0] +increment === uniq[1]
                                         ? uniq[1] +increment === uniq[2]
-                                            ? uniq[2] +increment === uniq[3] && isNoValid
+                                            ? uniq[2] +increment === uniq[3]
                                                 ? uniq.concat("YOU WIN")
                                                 : uniq
                                             : uniq
