@@ -41,7 +41,7 @@ function turn(_turn) {
 function navigationToWin(link) {
   const _isTrue = isTrue ? "WOODY" : "TRUMP";
   const locationIsWin = alert(_isTrue);
-  // location.assign(link)
+  location.assign(link)
   return locationIsWin;
 }
 
@@ -191,7 +191,7 @@ function rangeByControlMoves(sortingArray, prev, next, type) {
   let resultRange = [];
   switch(type) {
     case '+':
-    resultRange = sortingArray.filter(i => i > prev && i <= prev+next)
+    resultRange = sortingArray.filter(i => i >= prev && i < prev+next)
     break;
     case '-':
     resultRange = sortingArray.filter(i => i <= prev && i > prev-next)
@@ -240,24 +240,45 @@ function controlMoves(sortingArray, increment) {
       case "1":
           if(sortingArray.includes(1)) {
             isNoValid = rangeByControlMoves(sortingArray, 1, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if (sortingArray.includes(7) && sortingArray.includes(8)) {
             isNoValid = rangeByControlMoves(sortingArray, 7, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 8, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if (sortingArray.includes(14) && sortingArray.includes(15)) {
             isNoValid = rangeByControlMoves(sortingArray, 14, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 15, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if (sortingArray.includes(21) && sortingArray.includes(22)) {
             isNoValid = rangeByControlMoves(sortingArray, 21, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 22, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if (sortingArray.includes(28) && sortingArray.includes(29)) {
             isNoValid = rangeByControlMoves(sortingArray, 28, 4, '-').length === 4  || rangeByControlMoves(sortingArray, 29, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if (sortingArray.includes(35) && sortingArray.includes(36)) {
             isNoValid = rangeByControlMoves(sortingArray, 35, 4, '-').length === 4 || rangeByControlMoves(sortingArray, 36, 4, '+').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
           if(sortingArray.includes(42)) {
             isNoValid = rangeByControlMoves(sortingArray, 42, 4, '-').length === 4 ? true : false;
+            if(isNoValid) {
+              break;
+            }
           }
         break;
 
